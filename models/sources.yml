@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: source_name_airbnb
+    database: DB_VN252_PM  
+    schema: raw
+    tables:
+      - name: listings
+        identifier: raw_listings
+
+        # loaded_at_field: _etl_loaded_at
+        # freshness: # default freshness
+        #   warn_after: {count: 12, period: hour}
+        #   error_after: {count: 4444, period: day}
+      
+      - name: hosts
+        identifier: raw_hosts
+
+      # - name: HOSTS_stream
+      #   identifier: RAW_HOSTS_stream
+
+      - name: reviews
+        identifier: raw_reviews
