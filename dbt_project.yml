@@ -39,10 +39,18 @@ models:
   my_new_project:
     # Applies to all files under models/example/
 
+    +persist_docs:
+      relation: true
+      columns: true
+
     +materialized: view
 
     example:
       +materialized: view
+
+    raw:
+      +materialized: table
+      +schema: raw
 
     src:
       +materialized: table
@@ -50,3 +58,5 @@ models:
     cdm:
       +materialized: table
       +schema: cdm
+
+    
