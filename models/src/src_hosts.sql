@@ -2,7 +2,7 @@ WITH raw_hosts AS (
 SELECT
 *
 FROM
-DB_VN252_PM.RAW.RAW_HOSTS
+{{ source('source_name_goibibo','hosts')}}
 )
 SELECT
 id AS host_id,

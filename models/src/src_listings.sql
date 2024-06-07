@@ -2,7 +2,7 @@ WITH raw_listings AS (
 SELECT
 *
 FROM
-DB_VN252_PM.RAW.RAW_LISTINGS
+{{ source('source_name_goibibo','listings')}}
 )
 SELECT
 id AS listing_id,

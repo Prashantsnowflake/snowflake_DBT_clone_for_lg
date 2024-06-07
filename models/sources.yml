@@ -1,23 +1,26 @@
 version: 2
 
 sources:
-  - name: source_name_airbnb
+  - name: source_name_goibibo
     database: DB_VN252_PM  
     schema: raw
     tables:
       - name: listings
-        identifier: raw_listings
+        identifier: raw_listings_live
 
-        # loaded_at_field: _etl_loaded_at
-        # freshness: # default freshness
-        #   warn_after: {count: 12, period: hour}
-        #   error_after: {count: 4444, period: day}
       
       - name: hosts
-        identifier: raw_hosts
+        identifier: raw_hosts_live
 
-      # - name: HOSTS_stream
-      #   identifier: RAW_HOSTS_stream
+      - name: hosts_stream
+        identifier: raw_hosts_live_stream
+
+      - name: listing_stream
+        identifier: RAW_LISTING_LIVE_STREAM
 
       - name: reviews
         identifier: raw_reviews
+        loaded_at_field: date
+        freshness: # default freshness
+          warn_after: {count: 12, period: hour}
+          error_after: {count: 4444, period: day}
