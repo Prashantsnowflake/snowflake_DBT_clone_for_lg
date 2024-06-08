@@ -15,7 +15,7 @@ name,
 ) AS host_name,
 is_superhost,
 created_at,
-updated_at,
+updated_at,region,
 current_timestamp as insert_ts
 FROM
 src_hosts

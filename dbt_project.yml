@@ -45,9 +45,6 @@ models:
 
     +materialized: view
 
-    example:
-      +materialized: view
-
     raw:
       +materialized: table
       +schema: raw

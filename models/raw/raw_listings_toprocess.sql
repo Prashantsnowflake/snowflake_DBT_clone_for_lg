@@ -1,14 +1,14 @@
 SELECT   row_id                    
- ,id                        
+ ,id    as listing_id                    
  ,listing_url               
- ,name                      
+ ,name  as listing_name                    
  ,room_type                 
  ,minimum_nights            
  ,host_id                   
- ,price                     
+ ,price     as price_str                
  ,created_at                
  ,updated_at                
- ,created_ts                
+ ,insert_ts                
  ,metadata$filename         
  ,metadata$file_row_number  
 from     {{ source('source_name_goibibo','listing_stream')}}

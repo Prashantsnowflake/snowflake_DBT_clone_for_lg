@@ -8,9 +8,6 @@ sources:
       - name: listings
         identifier: raw_listings_live
 
-      
-      - name: hosts
-        identifier: raw_hosts_live
 
       - name: hosts_stream
         identifier: raw_hosts_live_stream
@@ -18,8 +15,8 @@ sources:
       - name: listing_stream
         identifier: RAW_LISTING_LIVE_STREAM
 
-      - name: reviews
-        identifier: raw_reviews
+      - name: reviews_stream
+        identifier: raw_reviews_live_stream
         loaded_at_field: date
         freshness: # default freshness
           warn_after: {count: 12, period: hour}
