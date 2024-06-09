@@ -2,6 +2,7 @@
     config(materialized='incremental' 
     , unique_key='listing_id'
     , on_schema_change='sync_all_columns'
+
      )
 }}
 
@@ -18,7 +19,8 @@
     updated_at,
 	current_timestamp() insert_ts
   FROM
-    {{ ref('vw_listing_cleansed') }}
+    {{ ref('vw_listings_cleansed') }} where  dq_check = true
+
 )
 select * from src_listings
 

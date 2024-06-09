@@ -1,3 +1,11 @@
+{{
+config(
+materialized = 'incremental'
+, on_schema_change='sync_all_columns'
+, pre_hook='truncate table raw.raw_hosts_toprocess'
+)
+}}
+
 SELECT  row_id                         
      ,id                            
      ,name                          
@@ -8,4 +16,4 @@ SELECT  row_id
      ,metadata$filename             
      ,metadata$file_row_number
 from     {{ source('source_name_goibibo','hosts_stream')}}
-where  METADATA$ISUPDATE = 'FALSE' and METADATA$ACTION = 'INSERT'
+where  METADATA$ACTION = 'INSERT'

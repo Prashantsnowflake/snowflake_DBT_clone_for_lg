@@ -5,12 +5,10 @@ sources:
     database: DB_VN252_PM  
     schema: raw
     tables:
-      - name: listings
-        identifier: raw_listings_live
-
 
       - name: hosts_stream
         identifier: raw_hosts_live_stream
+        description: stream raw_hosts_live_stream based on table raw.raw_hosts_live
 
       - name: listing_stream
         identifier: RAW_LISTING_LIVE_STREAM

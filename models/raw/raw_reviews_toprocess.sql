@@ -1,3 +1,11 @@
+{{
+config(
+materialized = 'incremental'
+, on_schema_change='sync_all_columns'
+, pre_hook='truncate table raw.raw_reviews_toprocess'
+)
+}}
+
 WITH raw_reviews AS 
  (
   SELECT
@@ -11,6 +19,13 @@ WITH raw_reviews AS
   ,metadata$filename         
   ,metadata$file_row_number
   FROM {{ source('source_name_goibibo','reviews_stream')}} 
-  where  METADATA$ISUPDATE = 'FALSE' and METADATA$ACTION = 'INSERT'
+  where 1  = 1  
+  and METADATA$ACTION = 'INSERT'
  )
 SELECT * FROM raw_reviews
+
+{% if is_incremental() %}
+ where insert_ts > ( select NVL( max(insert_ts) , '1900-01-01') from {{ this }})
+{% endif %}
+
+
