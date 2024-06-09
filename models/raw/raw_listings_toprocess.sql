@@ -1,3 +1,12 @@
+{{
+config(
+materialized = 'incremental'
+, on_schema_change='sync_all_columns'
+, pre_hook='truncate table raw.raw_listings_toprocess'
+)
+}}
+
+
 SELECT   row_id                    
  ,id    as listing_id                    
  ,listing_url               
@@ -12,4 +21,4 @@ SELECT   row_id
  ,metadata$filename         
  ,metadata$file_row_number  
 from     {{ source('source_name_goibibo','listing_stream')}}
-where  METADATA$ISUPDATE = 'FALSE' and METADATA$ACTION = 'INSERT'
+where  METADATA$ACTION = 'INSERT'

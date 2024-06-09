@@ -56,4 +56,8 @@ models:
       +materialized: table
       +schema: cdm
 
-    
+    control_audit:
+      +materialized: table
+      +schema: control_audit
+
+
