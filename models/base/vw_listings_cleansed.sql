@@ -1,4 +1,4 @@
-{{ config(materialized='view') }}
+{{ config(materialized='view' , schema='base')}}
 
 WITH src_listings AS (
   SELECT

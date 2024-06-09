@@ -1,7 +1,8 @@
 {{
 config(
-materialized = 'incremental'
-, on_schema_change='sync_all_columns'
+  materialized = 'incremental'
+, on_schema_change='sync_all_columns' 
+, schema='raw' 
 )
 }}
 

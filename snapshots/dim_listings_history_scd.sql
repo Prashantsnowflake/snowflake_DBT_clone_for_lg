@@ -1,7 +1,7 @@
 {% snapshot dim_listings_history_scd %}
 {{
 config(
-target_schema='BASE',
+target_schema='CDM',
 unique_key='listing_id',
 strategy='timestamp',
 updated_at='updated_at',

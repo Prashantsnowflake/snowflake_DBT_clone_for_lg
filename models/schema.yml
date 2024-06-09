@@ -60,7 +60,7 @@ models:
               values: [ 'positive' , 'negative','neutral']
 
       - name : review_id
-        description: surrogate key to identify the unique records in fct_reviews table
+        description: surrogate key to identify the unique records in fct_reviews table and hsould not be null
         tests:
-          - unique 
+          - not_null
 

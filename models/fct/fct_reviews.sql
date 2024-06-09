@@ -1,7 +1,7 @@
 {{
 config(
 materialized = 'incremental'
-, on_schema_change='sync_all_columns'
+, on_schema_change='sync_all_columns' ,schema='cdm' , post_hook="truncate table raw.raw_reviews_toprocess"
 )
 }}
 

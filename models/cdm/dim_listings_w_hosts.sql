@@ -1,3 +1,7 @@
+{{ config(
+materialized = 'table',schema='cdm' , post_hook="truncate table raw.raw_listings_toprocess"
+) }}
+
 WITH
 l AS (
 SELECT

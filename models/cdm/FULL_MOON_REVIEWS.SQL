@@ -1,6 +1,8 @@
 {{ config(
-materialized = 'table',
+materialized = 'table',schema='cdm'
 ) }}
+
+
 WITH fct_reviews AS (
 SELECT * FROM {{ ref('fct_reviews') }}
 ),
