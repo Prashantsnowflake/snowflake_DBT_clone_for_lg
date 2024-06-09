@@ -13,7 +13,7 @@ is_superhost,
 created_at,
 updated_at,region ,
 current_timestamp as insert_ts
-from {{ ref('vw_hosts_cleansed') }} where dq_check = true
+from {{ ref('vw_hosts_cleansed') }} where dq_check = true and rn  = 1
 
 {% if is_incremental() %}
 --in case case this condition is not required

@@ -19,7 +19,7 @@
     updated_at,
 	current_timestamp() insert_ts
   FROM
-    {{ ref('vw_listings_cleansed') }} where  dq_check = true
+    {{ ref('vw_listings_cleansed') }} where  dq_check = true and rn = 1 
 
 )
 select * from src_listings
