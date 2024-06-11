@@ -1,7 +1,7 @@
 {% snapshot dim_hosts_history_scd %}
 {{
 config(
-target_schema='BASE',
+target_schema='cdm',
 unique_key='host_id',
 strategy='timestamp',
 updated_at='updated_at',
