@@ -98,3 +98,36 @@ models:
 
       - name : host_id
         description: host_id reference from dim_hosts_table
+
+  - name: vw_hosts_cleansed 
+    description: view holding latest information , with cleansed and dq check
+    columns:
+      - name: dq_check
+        description: value is either true or false , true will move to dim tables and false will be moved to suspended entry table
+        
+  - name: vw_listings_cleansed 
+    description: view holding latest information , with cleansed and dq check
+    columns:
+      - name: dq_check
+        description: value is either true or false , true will move to dim tables and false will be moved to suspended entry table
+        
+  - name: vw_reviews_cleansed 
+    description: view holding latest information , with cleansed and dq check
+    columns:
+      - name: dq_check
+        description: value is either true or false , true will move to dim tables and false will be moved to suspended entry table
+  
+  - name: suspended_raw_entry 
+    description: all the invalid records will be moved to this table for further investigation
+    columns:
+      - name: json_records
+        description: the json of the entire record to indetify the root cause 
+        
+  - name: raw_hosts_toprocess  
+    description: hold the current data during pipeline from stream , will be truncate after run completed
+    
+  - name: raw_listings_toprocess  
+    description: hold the current data during pipeline from stream , will be truncate after run completed
+    
+  - name: raw_reviews_toprocess  
+    description: hold the current data during pipeline from stream , will be truncate after run completed
